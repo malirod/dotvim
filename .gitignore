@@ -4,3 +4,7 @@
 !./spell/ru.utf-8.add
 
 tags
+.netrwhist
+bundle/completion/clang_complete/autoload/getopts/cpp.cache
+bundle/completion/clang_complete/plugin/clang/__init__.pyc
+bundle/completion/clang_complete/plugin/clang/cindex.pyc
