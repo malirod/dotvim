@@ -722,7 +722,7 @@ vmap <leader>D :LinediffReset<cr>
 xmap gc  \\
 nmap gc  \\
 nmap gcc \\\
-
+autocmd FileType cpp set commentstring=//\ %s
 " ------------------------------------------------------------------------------
 " neocomplcache
 
@@ -775,7 +775,7 @@ endfunction
 nmap <leader>n :NERDTreeToggle<cr>
 
 " don't use NERDTree as file manager
-"let g:NERDTreeHijackNetrw=0
+let g:NERDTreeHijackNetrw=0
 
 " open a NERDTree automatically when vim starts up if no files were specified
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -820,6 +820,10 @@ autocmd BufWritePost *.py call Flake8()
 " Ignore "80 chars" rule
 let g:flake8_ignore="E501"
 
+" ------------------------------------------------------------------------------
+" ErrorMarker
+
+let &errorformat="%f:%l:%c: %t%*[^:]:%m,%f:%l: %t%*[^:]:%m," . &errorformat
 " ==============================================================================
 " misc
 
@@ -1431,3 +1435,6 @@ let g:pymode_syntax=1
 map [[ ][%0
 
 " vim: set textwidth=80 syntax+=.autofold :
+
+" Paste multiple times
+xnoremap p pgvy
