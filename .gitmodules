@@ -43,3 +43,6 @@
 [submodule "bundle/other/nerdtree"]
 	path = bundle/other/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
+[submodule "bundle/other/tagbar"]
+	path = bundle/other/tagbar
+	url = git@github.com:majutsushi/tagbar.git
