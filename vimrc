@@ -775,7 +775,10 @@ endfunction
 nmap <leader>n :NERDTreeToggle<cr>
 
 " don't use NERDTree as file manager
-let g:NERDTreeHijackNetrw=0
+"let g:NERDTreeHijackNetrw=0
+
+" open a NERDTree automatically when vim starts up if no files were specified
+autocmd vimenter * if !argc() | NERDTree | endif
 
 " ------------------------------------------------------------------------------
 " netrw

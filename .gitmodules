@@ -40,3 +40,6 @@
 [submodule "bundle/filetypes/syntax-extra"]
     path = bundle/filetypes/syntax-extra
     url = https://github.com/justinmk/vim-syntax-extra.git
+[submodule "bundle/other/nerdtree"]
+	path = bundle/other/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
