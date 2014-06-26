@@ -1,7 +1,7 @@
 ## Install
 
 ```bash
-git clone https://github.com/xaizek/dotvim.git ~/.vim
+git clone https://github.com/malirod/dotvim.git ~/.vim
 cd ~/.vim
 git submodule update --init
 ./install
