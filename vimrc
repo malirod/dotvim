@@ -582,7 +582,7 @@ let g:clang_auto_select = 1
 let g:clang_use_library = 1
 
 " specify path to clang library
-let g:clang_library_path = $HOME.'/bin/'
+let g:clang_library_path = '/usr/lib/llvm-3.5/lib'
 
 " conceal some odd parts of snippets
 "let g:clang_conceal_snippets = 1
@@ -795,7 +795,7 @@ let g:netrw_preview=1
 " ------------------------------------------------------------------------------
 " pydiction
 
-let g:pydiction_location = '/home/xaizek/.vim/bundle/pydiction/pydiction.py'
+let g:pydiction_location = '/home/malirod/.vim/bundle/pydiction/pydiction.py'
 
 " ------------------------------------------------------------------------------
 " ultisnips
