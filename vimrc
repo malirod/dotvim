@@ -783,6 +783,24 @@ let g:NERDTreeHijackNetrw=0
 " open a NERDTree automatically when vim starts up if no files were specified
 autocmd vimenter * if !argc() | NERDTree | endif
 
+" Check if NERDTree is open or active
+function! rc:isNERDTreeOpen()
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! rc:syncTree()
+  if &modifiable && rc:isNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call rc:syncTree()
+
+
 " ------------------------------------------------------------------------------
 " netrw
 
