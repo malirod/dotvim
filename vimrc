@@ -270,6 +270,9 @@ let g:python_highlight_all=1
 
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 
+" don't parse includes and other buffers on Ctrl-N/P completion in insert mode
+autocmd FileType c,cpp set complete-=i complete-=b
+
 " ------------------------------------------------------------------------------
 " some useful abbreviations for c and c++
 
@@ -1000,8 +1003,8 @@ autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
 " use current file's directory as working directory
 " set autochdir
-autocmd BufEnter,BufWinEnter *
-            \ if &filetype != 'fugitiveblame' | silent! execute 'lcd' fnamemodify(expand('<afile>'), ':p:h') | endif
+"autocmd BufEnter,BufWinEnter *
+"            \ if &filetype != 'fugitiveblame' | silent! execute 'lcd' fnamemodify(expand('<afile>'), ':p:h') | endif
 
 " create tags on Shift-F12 key
 if has('win32')
