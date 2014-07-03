@@ -778,7 +778,7 @@ endfunction
 nmap <leader>n :NERDTreeToggle<cr>
 
 " open a NERDTree automatically when vim starts up if no files were specified
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 
 " select current file in NERDTree
 map <leader>r :NERDTreeFind<cr>
@@ -831,6 +831,14 @@ let g:flake8_ignore="E501"
 " ErrorMarker
 
 let &errorformat="%f:%l:%c: %t%*[^:]:%m,%f:%l: %t%*[^:]:%m," . &errorformat
+
+" ------------------------------------------------------------------------------
+" vim-session
+let g:session_autoload='yes'
+let g:session_autosave='promt'
+let g:session_default_overwrite=1
+let g:session_verbose_messages=0
+
 " ==============================================================================
 " misc
 
