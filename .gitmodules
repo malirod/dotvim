@@ -46,3 +46,6 @@
 [submodule "bundle/other/vim-flake8"]
 	path = bundle/other/vim-flake8
 	url = git@github.com:nvie/vim-flake8.git
+[submodule "bundle/other/protodef"]
+	path = bundle/other/protodef
+	url = git@github.com:derekwyatt/vim-protodef.git
