@@ -834,17 +834,17 @@ let &errorformat="%f:%l:%c: %t%*[^:]:%m,%f:%l: %t%*[^:]:%m," . &errorformat
 
 " ------------------------------------------------------------------------------
 " vim-session
-let g:session_autoload='no'
-let g:session_autosave='no'
+let g:session_autoload='yes'
+let g:session_autosave='yes'
 let g:session_default_overwrite=1
 let g:session_verbose_messages=0
 
 " Open\Save default session if we are not editing git commit or rebase texts
-augroup PluginSessionWithExceptions
-    autocmd!
-    autocmd VimEnter * if &filetype != 'gitcommit' && &filetype != 'gitrebase' | OpenSession | endif
-    autocmd VimLeavePre * if &filetype != 'gitcommit' && &filetype != 'gitrebase' | SaveSession | endif
-augroup END
+"augroup PluginSessionWithExceptions
+"    autocmd!
+"    autocmd VimEnter * if &filetype != 'gitcommit' && &filetype != 'gitrebase' | OpenSession | endif
+"    autocmd VimLeavePre * if &filetype != 'gitcommit' && &filetype != 'gitrebase' | SaveSession | endif
+"augroup END
 
 " ==============================================================================
 " misc

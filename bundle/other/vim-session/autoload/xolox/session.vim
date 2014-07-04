@@ -396,6 +396,10 @@ function! xolox#session#auto_load() " {{{2
   if g:session_autoload == 'no'
     return
   endif
+  if &filetype == 'gitcommit' || &filetype == 'gitrebase'
+    " We won't load the session if Vim is used for git.
+    return
+  endif
   " Check that the user has started Vim without editing any files.
   let current_buffer_is_empty = (&modified == 0 && getline(1, '$') == [''])
   let buffer_list_is_empty = (bufname('%') == '' && empty(filter(range(1, bufnr('$')), 'buflisted(v:val) && v:val != ' . bufnr(''))))
@@ -442,6 +446,10 @@ function! xolox#session#auto_save() " {{{2
   " [VimLeavePre]: http://vimdoc.sourceforge.net/htmldoc/autocmd.html#VimLeavePre
   if v:dying
     " We won't save the session if Vim is not terminating normally.
+    return
+  endif
+  if &filetype == 'gitcommit' || &filetype == 'gitrebase'
+    " We won't save the session if Vim is used for git.
     return
   endif
   if g:session_autosave == 'no'
