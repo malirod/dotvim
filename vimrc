@@ -746,30 +746,18 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 " ------------------------------------------------------------------------------
 " SingleCompile
 
-nmap <f9> :call <SID>CSWrapper('SCCompile')<cr>
-nmap <s-f9> :call <SID>CSWrapper('SCCompileRun')<cr>
-function! <SID>CSWrapper(SCCommand)
-    if !exists('b:SCAF') || b:SCAF == ''
-        execute ':'.a:SCCommand
-    else
-        execute ':'.a:SCCommand.'AF '.b:SCAF
-    endif
-endfunction
+" Use c++11 by default
+autocmd Filetype cpp nmap <buffer> <F9> :SCCompileAF -std=c++11<CR>
+autocmd Filetype cpp nmap <buffer> <s-F9> :SCCompileRunAF -std=c++11<CR>
 
-nmap <m-s-f9> :call SingleCompile#Run()<cr>
-
-autocmd BufReadPost,BufWritePre *.c,*.cpp,*.java call <SID>ReadSCAF()
-" SCAF - SingleCompileAdditionalFlags
-function! <SID>ReadSCAF()
-    let l:first_line = getline(1)
-    let l:directive = matchstr(l:first_line, 'SCAF:\s*.*$')
-    if l:directive == ''
-        let b:SCAF = ''
-        return
-    endif
-
-    let b:SCAF = substitute(l:directive, '^SCAF:\s*', '', '')
-endfunction
+" Specify Compilation Flags for Each Individual Source File
+" add next line to the beginning of the file
+" e.g.
+"// VIM: let b:sc_additional_flags='-lz'
+autocmd BufEnter * if exists('b:sc_additional_flags') |
+            \ exec 'nmap <buffer> <F9> :SCCompileAF ' . b:sc_additional_flags . '<cr>' |
+            \ exec 'nmap <buffer> <s-F9> :SCCompileRunAF ' . b:sc_additional_flags . '<cr>' |
+            \ end
 
 " ------------------------------------------------------------------------------
 " NERDTree

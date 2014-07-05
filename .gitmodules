@@ -49,3 +49,6 @@
 [submodule "bundle/other/protodef"]
 	path = bundle/other/protodef
 	url = git@github.com:derekwyatt/vim-protodef.git
+[submodule "bundle/other/singlecompile"]
+	path = bundle/other/singlecompile
+	url = git@github.com:xuhdev/SingleCompile.git
