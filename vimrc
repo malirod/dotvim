@@ -759,6 +759,11 @@ autocmd BufEnter * if exists('b:sc_additional_flags') |
             \ exec 'nmap <buffer> <s-F9> :SCCompileRunAF ' . b:sc_additional_flags . '<cr>' |
             \ end
 
+" setup clang++
+call SingleCompile#SetCompilerTemplate('cpp', 'clang++', 'Clang C++ Compiler', 'clang++', '-o $(FILE_TITLE)$', g:SingleCompile_common_run_command)
+call SingleCompile#SetOutfile('cpp', 'clang++', g:SingleCompile_common_out_file)
+call SingleCompile#ChooseCompiler('cpp', 'clang++')
+
 " ------------------------------------------------------------------------------
 " NERDTree
 
