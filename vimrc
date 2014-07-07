@@ -778,7 +778,7 @@ map <leader>r :NERDTreeFind<cr>
 
 " ------------------------------------------------------------------------------
 " lh-barckets
-autocmd FileType cpp let b:usemarks = 0
+autocmd BufEnter * let b:usemarks = 0
 
 " ------------------------------------------------------------------------------
 " netrw
