@@ -444,14 +444,23 @@ function! <SID>UpdateTags(changedfile)
             endif
         endif
 
+        " Setup excludes
+        if exists("g:ctag_options")
+            let l:ctag_options = g:ctag_options
+        else
+            let l:ctag_options = ''
+        endif
+
         if has('win32')
             execute 'silent !start /b ctags -R -a --c++-kinds=+p '
                         \.'--tag-relative=yes --fields=+iaS --extra=+q '
+                        \.l:ctag_options.' '
                         \.l:pathtoscan
         else
             call system('ctags -R -a --tag-relative=yes -f '
                         \.shellescape(l:tagsfile)
                         \.' --c++-kinds=+p --fields=+iaS --extra=+q '
+                        \.l:ctag_options.' '
                         \.l:pathtoscan
                         \.'&')
         endif
@@ -1018,14 +1027,29 @@ autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 "autocmd BufEnter,BufWinEnter *
 "            \ if &filetype != 'fugitiveblame' | silent! execute 'lcd' fnamemodify(expand('<afile>'), ':p:h') | endif
 
+function! GenerateTags()
+    " Setup excludes
+    if exists("g:ctag_options")
+        let l:ctag_options = g:ctag_options
+    else
+        let l:ctag_options = ''
+    endif
+
+    if has('win32')
+        execute ":silent !start /b ctags -R -a --c++-kinds=+p ".l:ctag_options
+                \." --fields=+iaS --extra=+q ."
+    else
+        execute ":silent !ctags -R -a --c++-kinds=+p ".l:ctag_options
+                \." --fields=+iaS --extra=+q ."
+    endif
+
+endfunction
+
 " create tags on Shift-F12 key
-if has('win32')
-    map <silent> <s-f12> :exe ":silent !start /b ctags -R -a --c++-kinds=+p
-                \ --fields=+iaS --extra=+q ."<cr>
-else
-    map <silent> <s-f12> :exe ":silent !ctags -R -a --c++-kinds=+p
-                \ --fields=+iaS --extra=+q ."<cr>
-endif
+nmap <silent> <s-f12> :call GenerateTags()<cr>
+
+" Show possible matches from tags
+nmap <C-\> :exe ":tj /" . expand("<cword>")<CR>
 
 " for TODO list
 map <silent><f8> :vimgrep /fixme\\|todo\\|FIXME\\|TODO\\|FIXIT\\|fixit/j
