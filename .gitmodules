@@ -52,3 +52,6 @@
 [submodule "bundle/other/listtoggle"]
 	path = bundle/other/listtoggle
 	url = git@github.com:Valloric/ListToggle.git
+[submodule "bundle/completion/youcompleteme"]
+	path = bundle/completion/youcompleteme
+	url = git@github.com:Valloric/YouCompleteMe.git

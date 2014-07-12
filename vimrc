@@ -549,6 +549,17 @@ nmap <f12> :GundoToggle<cr>
 let g:gundo_preview_bottom=1
 
 " ------------------------------------------------------------------------------
+" YouCompleteMe
+
+" populate locations list (:lopen \ :lclose)
+let g:ycm_always_populate_location_list = 1
+
+" map build action
+nnoremap <leader>Q :YcmForceCompileAndDiagnostics<CR>
+
+let g:ycm_confirm_extra_conf = 0
+
+" ------------------------------------------------------------------------------
 " TagList
 "
 " show TagList window at right
