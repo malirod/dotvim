@@ -52,3 +52,6 @@
 [submodule "bundle/other/singlecompile"]
 	path = bundle/other/singlecompile
 	url = git@github.com:xuhdev/SingleCompile.git
+[submodule "bundle/other/listtoggle"]
+	path = bundle/other/listtoggle
+	url = git@github.com:Valloric/ListToggle.git
