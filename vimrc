@@ -1431,3 +1431,6 @@ map [[ ][%0
 
 " Paste multiple times
 xnoremap p pgvy
+
+" delete by Ctrl-D
+imap <C-D> <C-O>x
