@@ -739,6 +739,8 @@ nmap <leader>n :NERDTreeToggle<cr>
 " select current file in NERDTree
 map <leader>r :NERDTreeFind<cr>
 
+" close tree on file open
+let NERDTreeQuitOnOpen = 1
 " ------------------------------------------------------------------------------
 " lh-barckets
 autocmd BufEnter * let b:usemarks = 0
