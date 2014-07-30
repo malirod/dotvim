@@ -541,19 +541,6 @@ let g:inccomplete_addclosebracket = ''
 let g:inccomplete_showdirs = 1
 
 " ------------------------------------------------------------------------------
-" qthelp
-
-if has('win32')
-    let g:qthelp_browser = 'start '
-                         \.'e:\programs\internet\Mozilla Firefox\firefox.exe'
-else
-    let g:qthelp_browser = 'firefox'
-endif
-
-" show help on Qt classes
-nmap <silent> <leader>q :QHelpOnThis<cr>
-
-" ------------------------------------------------------------------------------
 " Gundo
 
 nmap <f12> :GundoToggle<cr>
@@ -562,48 +549,15 @@ nmap <f12> :GundoToggle<cr>
 let g:gundo_preview_bottom=1
 
 " ------------------------------------------------------------------------------
-" clang_complete
+" YouCompleteMe
 
-" default options
-if !has('win32')
-    let g:clang_user_options = '-I/usr/local/include/'
-endif
+" populate locations list (:lopen \ :lclose)
+let g:ycm_always_populate_location_list = 1
 
-" popup Quickfix window on errors
-let g:clang_complete_copen = 1
+" map build action
+nnoremap <leader>Q :YcmForceCompileAndDiagnostics<CR>
 
-" enable autocompletion
-let g:clang_complete_auto = 1
-
-" complete macros
-let g:clang_complete_macros = 1
-
-" complete patterns
-let g:clang_complete_patterns = 1
-
-" sort completion matches in alphabetical order
-let g:clang_sort_algo = ''
-
-" use snippets
-let g:clang_snippets = 1
-
-" automatically select current match in the completion menu
-let g:clang_auto_select = 1
-
-" use clang library
-let g:clang_use_library = 1
-
-" specify path to clang library
-let g:clang_library_path = '/usr/lib/llvm-3.5/lib'
-
-" conceal some odd parts of snippets
-"let g:clang_conceal_snippets = 1
-
-" check syntax on <leader>Q
-nmap <silent> <leader>Q :call g:ClangUpdateQuickFix()<cr>
-
-" toggle autocompletion on <leader>q
-nmap <silent> <leader>q :let g:clang_complete_auto=!g:clang_complete_auto<cr>
+let g:ycm_confirm_extra_conf = 0
 
 " ------------------------------------------------------------------------------
 " TagList
@@ -785,6 +739,8 @@ nmap <leader>n :NERDTreeToggle<cr>
 " select current file in NERDTree
 map <leader>r :NERDTreeFind<cr>
 
+" close tree on file open
+let NERDTreeQuitOnOpen = 1
 " ------------------------------------------------------------------------------
 " lh-barckets
 autocmd BufEnter * let b:usemarks = 0
@@ -951,13 +907,13 @@ set cursorline
 nmap <silent> <leader>s :call <SID>ToggleSpell()<cr>
 
 " highlight current word (case sensitive)
-nnoremap <silent> <leader>l :call <SID>Highlight('let @/="\\C\\<', expand('<cword>'), '\\>"') \| setlocal hls<cr>
+"nnoremap <silent> <leader>l :call <SID>Highlight('let @/="\\C\\<', expand('<cword>'), '\\>"') \| setlocal hls<cr>
 nnoremap <silent> <leader>L :call <SID>Highlight('let @/="\\<', expand('<cword>'), '\\>"') \| setlocal hls<cr>
-nnoremap <silent> <leader><leader>l :call <SID>Highlight('let @/="\\C', expand('<cword>'), '"') \| setlocal hls<cr>
+"nnoremap <silent> <leader><leader>l :call <SID>Highlight('let @/="\\C', expand('<cword>'), '"') \| setlocal hls<cr>
 nnoremap <silent> <leader><leader>L :call <SID>Highlight('let @/="', expand('<cword>'), '"') \| setlocal hls<cr>
-vnoremap <silent> <leader>l :<c-u>call <SID>Highlight('let @/="\\C', @*, '"') \| setlocal hls<cr>
+"vnoremap <silent> <leader>l :<c-u>call <SID>Highlight('let @/="\\C', @*, '"') \| setlocal hls<cr>
 vnoremap <silent> <leader>L :<c-u>call <SID>Highlight('let @/="', @*, '"') \| setlocal hls<cr>
-vnoremap <silent> <leader><leader>l :<c-u>call <SID>Highlight('let @/="\\C', @*, '"') \| setlocal hls<cr>
+"vnoremap <silent> <leader><leader>l :<c-u>call <SID>Highlight('let @/="\\C', @*, '"') \| setlocal hls<cr>
 vnoremap <silent> <leader><leader>L :<c-u>call <SID>Highlight('let @/="', @*, '"') \| setlocal hls<cr>
 
 function! s:Highlight(before, what, after)
@@ -1477,3 +1433,6 @@ map [[ ][%0
 
 " Paste multiple times
 xnoremap p pgvy
+
+" delete by Ctrl-D
+imap <C-D> <C-O>x

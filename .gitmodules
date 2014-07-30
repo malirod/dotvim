@@ -1,6 +1,3 @@
-[submodule "bundle/completion/clang_complete"]
-	path = bundle/completion/clang_complete
-	url = git@github.com:Rip-Rip/clang_complete.git
 [submodule "bundle/completion/inccomplete"]
 	path = bundle/completion/inccomplete
 	url = https://github.com/xaizek/vim-inccomplete.git
@@ -52,3 +49,9 @@
 [submodule "bundle/other/singlecompile"]
 	path = bundle/other/singlecompile
 	url = git@github.com:xuhdev/SingleCompile.git
+[submodule "bundle/other/listtoggle"]
+	path = bundle/other/listtoggle
+	url = git@github.com:Valloric/ListToggle.git
+[submodule "bundle/completion/youcompleteme"]
+	path = bundle/completion/youcompleteme
+	url = git@github.com:Valloric/YouCompleteMe.git

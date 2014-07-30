@@ -19,3 +19,17 @@ else
         fi
     fi
 fi
+
+echo 'Initiating git submodules'
+
+git submodule update --init --recursive
+
+ROOT_DIR = $PWD
+
+echo 'Installing YouCompleteMe plugin'
+
+cd ./bundle/completion/youcompleteme
+
+./install.sh --clang-completer
+
+cd $ROOT_DIR
