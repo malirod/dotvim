@@ -55,3 +55,6 @@
 [submodule "bundle/completion/youcompleteme"]
 	path = bundle/completion/youcompleteme
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "bundle/other/grep"]
+	path = bundle/other/grep
+	url = https://github.com/yegappan/grep.git
