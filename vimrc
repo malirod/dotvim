@@ -792,7 +792,7 @@ let g:flake8_ignore="E501"
 inoremap <C-F> <esc>:Rgrep<CR>
 nnoremap <silent> <C-F> :Rgrep<CR>
 " Search selected text in current dir (recursive)
-vnoremap <C-F> y:Rgrep <c-r>"<CR>
+vnoremap <C-F> y:execute 'Rgrep '.substitute('<c-r>"', ' ', '\\ ', 'g')<CR>
 
 :let Grep_Default_Options = '-i'
 :let Grep_Skip_Files = '*.bak *~ *tags'
