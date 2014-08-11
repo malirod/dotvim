@@ -1,6 +1,3 @@
-[submodule "bundle/completion/inccomplete"]
-	path = bundle/completion/inccomplete
-	url = https://github.com/xaizek/vim-inccomplete.git
 [submodule "bundle/other/ultisnips"]
 	path = bundle/other/ultisnips
 	url = git://github.com/xaizek/ultisnips.git
@@ -55,3 +52,6 @@
 [submodule "bundle/completion/youcompleteme"]
 	path = bundle/completion/youcompleteme
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "bundle/other/grep"]
+	path = bundle/other/grep
+	url = https://github.com/yegappan/grep.git
