@@ -797,7 +797,7 @@ vnoremap <C-F> y:execute 'Rgrep '.substitute('<c-r>"', ' ', '\\ ', 'g')<CR>
 :let Grep_Default_Options = '-i'
 :let Grep_Skip_Files = '*.bak *~ *tags'
 :let Grep_Skip_Dirs = '.git'
-:let Grep_Default_Filelist = '*.c *.cpp *.hpp *.h *.cxx'
+:let Grep_Default_Filelist = '*.c *.cpp *.hpp *.h *.cxx *.py'
 
 " ------------------------------------------------------------------------------
 " ErrorMarker
