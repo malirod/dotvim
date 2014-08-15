@@ -723,9 +723,9 @@ autocmd BufEnter * if exists('b:sc_additional_flags') |
             \ end
 
 " setup clang++
-call SingleCompile#SetCompilerTemplate('cpp', 'clang++', 'Clang C++ Compiler', 'clang++', '-o $(FILE_TITLE)$', g:SingleCompile_common_run_command)
-call SingleCompile#SetOutfile('cpp', 'clang++', g:SingleCompile_common_out_file)
-call SingleCompile#ChooseCompiler('cpp', 'clang++')
+"call SingleCompile#SetCompilerTemplate('cpp', 'clang++', 'Clang C++ Compiler', 'clang++', '-o $(FILE_TITLE)$', g:SingleCompile_common_run_command)
+"call SingleCompile#SetOutfile('cpp', 'clang++', g:SingleCompile_common_out_file)
+"call SingleCompile#ChooseCompiler('cpp', 'clang++')
 
 " ------------------------------------------------------------------------------
 " NERDTree
@@ -1170,11 +1170,11 @@ set imsearch=0
 inoremap <c-l> <c-^>
 
 " for work of normal mode commands
-if has('win32')
-    language ctype Russian_Russia.1251
-else
-    language ctype ru_RU.utf-8
-endif
+"if has('win32')
+"    language ctype Russian_Russia.1251
+"else
+"    language ctype ru_RU.utf-8
+"endif
 
 " ==============================================================================
 " folding
