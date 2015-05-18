@@ -1083,7 +1083,7 @@ nmap <leader>y "+y
 nmap <leader>Y "+Y
 nmap <leader>p "+p
 " conflicts with ProtoDef plugin
-" nmap <leader>P "+P
+nmap <leader>P "+P
 
 " to edit command line in a buffer
 set cedit=<c-g>
