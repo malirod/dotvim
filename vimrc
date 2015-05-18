@@ -989,9 +989,9 @@ nmap <silent> _= :call <SID>PreserveAndRun('normal gg=G')<cr>
 " map _$ to removing all ending whitespaces
 nmap <silent> _$ :call <SID>PreserveAndRun('%s/\s\+$//e')<cr>
 
-" use Ctrl-N/P to switch between tabs
+" use Ctrl-n/Shift-n to switch between tabs
 nnoremap <c-n> gt
-nnoremap <c-p> gT
+nnoremap <S-n> gT
 
 " show/hide folds on space
 nnoremap <space> za
