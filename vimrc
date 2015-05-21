@@ -562,6 +562,12 @@ nnoremap <leader>Q :YcmForceCompileAndDiagnostics<CR>
 let g:ycm_confirm_extra_conf = 0
 
 " ------------------------------------------------------------------------------
+" CtrlP
+
+" setup ignore
+let g:ctrlp_custom_ignore = { 'file': '\v\.(pic|so)$'}
+
+" ------------------------------------------------------------------------------
 " TagList
 "
 " show TagList window at right
