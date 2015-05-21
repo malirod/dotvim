@@ -520,11 +520,6 @@ let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<c-x><c-o>'
 
 " ------------------------------------------------------------------------------
-" ProtoDef
-
-let g:disable_protodef_sorting = 1
-
-" ------------------------------------------------------------------------------
 " XPTemplate
 
 " disable bracket autocompletion
