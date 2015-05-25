@@ -566,6 +566,13 @@ let g:ycm_confirm_extra_conf = 0
 
 " setup ignore
 let g:ctrlp_custom_ignore = { 'file': '\v\.(pic|so)$'}
+" Find buffers
+nnoremap <leader>fb :CtrlPBuffer<CR>
+" Find files
+nnoremap <leader>ff :CtrlP<CR>
+" Change the default mapping
+let g:ctrlp_map = '<leader>p'
+let g:ctrlp_cmd = 'CtrlP'
 
 " ------------------------------------------------------------------------------
 " TagList
