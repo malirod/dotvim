@@ -566,12 +566,12 @@ let g:ycm_confirm_extra_conf = 0
 
 " setup ignore
 let g:ctrlp_custom_ignore = { 'file': '\v\.(pic|so)$'}
-" Find buffers
+" Find buffers (find buffer)
 nnoremap <leader>fb :CtrlPBuffer<CR>
-" Find files
+" Find files (find files)
 nnoremap <leader>ff :CtrlP<CR>
-" Change the default mapping
-let g:ctrlp_map = '<leader>p'
+" Change the default mapping (find mixed)
+let g:ctrlp_map = '<leader>fm'
 let g:ctrlp_cmd = 'CtrlP'
 
 " ------------------------------------------------------------------------------
