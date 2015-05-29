@@ -575,6 +575,18 @@ let g:ctrlp_map = '<leader>fm'
 let g:ctrlp_cmd = 'CtrlP'
 
 " ------------------------------------------------------------------------------
+" Fugitive
+
+" Map Gstatus
+nnoremap <leader>gs :Gstatus<CR>
+
+" Map Gdiff
+nnoremap <leader>gd :Gdiff<CR>
+
+" Map Gcommit
+nnoremap <leader>gci :Gcommit<CR>
+
+" ------------------------------------------------------------------------------
 " TagList
 "
 " show TagList window at right
