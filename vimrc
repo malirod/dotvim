@@ -771,9 +771,6 @@ let NERDTreeQuitOnOpen = 1
 
 " Filter out files
 let NERDTreeIgnore = ['\.pyc$']
-" ------------------------------------------------------------------------------
-" lh-barckets
-autocmd BufEnter * let b:usemarks = 0
 
 " ------------------------------------------------------------------------------
 " netrw
