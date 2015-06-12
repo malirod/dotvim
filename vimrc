@@ -565,7 +565,7 @@ let g:ycm_confirm_extra_conf = 0
 " CtrlP
 
 " setup ignore
-let g:ctrlp_custom_ignore = { 'file': '\v\.(pic|so)$'}
+let g:ctrlp_custom_ignore = { 'file': '\v\.(pyc|so)$'}
 " Find buffers (find buffer)
 nnoremap <leader>fb :CtrlPBuffer<CR>
 " Find files (find files)
