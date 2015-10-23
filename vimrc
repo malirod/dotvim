@@ -834,7 +834,7 @@ let &errorformat="%f:%l:%c: %t%*[^:]:%m,%f:%l: %t%*[^:]:%m," . &errorformat
 " ------------------------------------------------------------------------------
 " vim-session
 let g:session_autoload='no'
-" let g:session_autosave='yes'
+let g:session_autosave='no'
 " let g:session_default_overwrite=1
 " let g:session_verbose_messages=0
 
