@@ -632,6 +632,30 @@ let g:tagbar_autofocus = 1
 nmap <leader>t :TagbarToggle<cr>
 
 " ------------------------------------------------------------------------------
+" Syntastic
+let g:syntastic_python_checkers = ['pylint']
+
+function! FindConfig(prefix, what, where)
+    let cfg = findfile(a:what, escape(a:where, ' ') . ';')
+    return cfg !=# '' ? ' ' . a:prefix . ' ' . shellescape(cfg) : ''
+endfunction
+
+autocmd FileType python let b:syntastic_python_pylint_args =
+    \ get(g:, 'syntastic_python_pylint_args', '') . '--rcfile=' .
+    \ FindConfig('', '.pylintrc', expand('<afile>:p:h', 1))
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+autocmd FileType python map <buffer> <leader>8 :SyntasticCheck<CR>
+
+" ------------------------------------------------------------------------------
 " FSwitch
 
 " autocommands to setup settings for different file types
@@ -807,10 +831,10 @@ let g:UltiSnipsSnippetDirectories=["ultisnips"]
 " vim-flake8
 
 " check with flake8 on python code saving
-autocmd BufWritePost *.py call Flake8()
+"autocmd BufWritePost *.py call Flake8()
 
 " Ignore "80 chars" rule
-let g:flake8_ignore="E501"
+"let g:flake8_ignore="E501"
 
 " ------------------------------------------------------------------------------
 " grep
