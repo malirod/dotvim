@@ -637,12 +637,12 @@ let g:syntastic_python_checkers = ['pylint']
 
 function! FindConfig(prefix, what, where)
     let cfg = findfile(a:what, escape(a:where, ' ') . ';')
-    return cfg !=# '' ? ' ' . a:prefix . ' ' . shellescape(cfg) : ''
+    return cfg !=# '' ? '' . a:prefix . '' . shellescape(cfg) : ''
 endfunction
 
 autocmd FileType python let b:syntastic_python_pylint_args =
-    \ get(g:, 'syntastic_python_pylint_args', '') . '--rcfile=' .
-    \ FindConfig('', '.pylintrc', expand('<afile>:p:h', 1))
+    \ get(g:, 'syntastic_python_pylint_args', '') .
+    \ FindConfig('--rcfile=', '.pylintrc', expand('<afile>:p:h', 1))
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
