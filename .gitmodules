@@ -34,9 +34,6 @@
 [submodule "bundle/other/tagbar"]
 	path = bundle/other/tagbar
 	url = git@github.com:majutsushi/tagbar.git
-[submodule "bundle/other/vim-flake8"]
-	path = bundle/other/vim-flake8
-	url = git@github.com:nvie/vim-flake8.git
 [submodule "bundle/other/singlecompile"]
 	path = bundle/other/singlecompile
 	url = git@github.com:xuhdev/SingleCompile.git

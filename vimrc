@@ -828,15 +828,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsSnippetDirectories=["ultisnips"]
 
 " ------------------------------------------------------------------------------
-" vim-flake8
-
-" check with flake8 on python code saving
-"autocmd BufWritePost *.py call Flake8()
-
-" Ignore "80 chars" rule
-"let g:flake8_ignore="E501"
-
-" ------------------------------------------------------------------------------
 " grep
 
 " Search word under cursor in current dir (recursive)
