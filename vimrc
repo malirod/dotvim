@@ -788,7 +788,7 @@ nmap <leader>n :NERDTreeToggle<cr>
 "autocmd vimenter * if !argc() | NERDTree | endif
 
 " select current file in NERDTree
-map <leader>r :NERDTreeFind<cr>
+map <leader>rr :NERDTreeFind<cr>
 
 " close tree on file open
 let NERDTreeQuitOnOpen = 1
