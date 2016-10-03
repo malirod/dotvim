@@ -656,6 +656,12 @@ let g:syntastic_check_on_wq = 1
 autocmd FileType python map <buffer> <leader>8 :SyntasticCheck<CR>
 
 " ------------------------------------------------------------------------------
+" Vim Airline
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='simple'
+
+" ------------------------------------------------------------------------------
 " FSwitch
 
 " autocommands to setup settings for different file types

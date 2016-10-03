@@ -52,3 +52,9 @@
 [submodule "bundle/other/syntastic"]
 	path = bundle/other/syntastic
 	url = https://github.com/scrooloose/syntastic
+[submodule "bundle/other/vim-airline"]
+	path = bundle/other/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "bundle/other/vim-airline-themes"]
+	path = bundle/other/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
