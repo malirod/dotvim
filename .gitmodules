@@ -58,3 +58,6 @@
 [submodule "bundle/other/vim-airline-themes"]
 	path = bundle/other/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "bundle/other/jedi-vim"]
+	path = bundle/other/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
