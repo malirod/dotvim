@@ -144,7 +144,7 @@ set tabline=%!MyTabLine()
 set showtabline=2
 
 " don't use conceal feature in cpp and c files
-autocmd FileType cpp,c set concealcursor=in|set conceallevel=0
+autocmd FileType cpp,c,cc set concealcursor=in|set conceallevel=0
 
 " preserve window view (to do not reset relative top line and relative position
 " of the cursor) when switching buffers (see tip 1375 on Vim Wiki)
@@ -271,16 +271,16 @@ let g:python_highlight_all=1
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 
 " don't parse includes and other buffers on Ctrl-N/P completion in insert mode
-autocmd FileType c,cpp set complete-=i complete-=b
+autocmd FileType c,cpp,cc set complete-=i complete-=b
 
 " ------------------------------------------------------------------------------
 " some useful abbreviations for c and c++
 
-autocmd FileType c,cpp execute
+autocmd FileType c,cpp,cc execute
             \ 'iabbrev <buffer> #d #define'
-autocmd FileType c,cpp execute
+autocmd FileType c,cpp,cc execute
             \ 'iabbrev <buffer> #i #include'
-autocmd FileType c,cpp execute
+autocmd FileType c,cpp,cc execute
             \ 'iabbrev <buffer> #p #pragma'
 
 " ------------------------------------------------------------------------------
@@ -419,7 +419,7 @@ else
 endif
 
 " for automatic tags regeneration on file write
-autocmd! BufWritePost *.c,*.cpp,*.h,*.hpp call <SID>UpdateTags(expand('%'))
+autocmd! BufWritePost *.c,*.cpp,*.cc,*.h,*.hpp call <SID>UpdateTags(expand('%'))
 function! <SID>UpdateTags(changedfile)
     " don't try to write to non-accessible directories, e.g. to fugitive:///...
     if filewritable(expand('%:p:h')) != 2
@@ -667,13 +667,15 @@ let g:airline_theme='simple'
 " autocommands to setup settings for different file types
 augroup fswitch
     autocmd!
-    autocmd! BufEnter,BufRead *.h let b:fswitchdst = 'c,cpp'
+    autocmd! BufEnter,BufRead *.h let b:fswitchdst = 'cc,cpp,c'
                               \ | let b:fswitchlocs = '.'
     autocmd! BufEnter,BufRead *.c let b:fswitchdst = 'h'
                               \ | let b:fswitchlocs = '.'
-    autocmd! BufEnter,BufRead *.hpp let b:fswitchdst = 'cpp'
+    autocmd! BufEnter,BufRead *.hpp let b:fswitchdst = 'cpp,cc'
                               \ | let b:fswitchlocs = '.'
     autocmd! BufEnter,BufRead *.cpp let b:fswitchdst = 'hpp,h'
+                                \ | let b:fswitchlocs = '.'
+    autocmd! BufEnter,BufRead *.cc let b:fswitchdst = 'h,hpp'
                                 \ | let b:fswitchlocs = '.'
     autocmd! BufEnter,BufRead *.xaml let b:fswitchdst = 'xaml.cs'
                               \ | let b:fswitchlocs = '.'
@@ -745,7 +747,7 @@ vmap <leader>D :LinediffReset<cr>
 xmap gc  \\
 nmap gc  \\
 nmap gcc \\\
-autocmd FileType cpp set commentstring=//\ %s
+autocmd FileType cpp,cc set commentstring=//\ %s
 " ------------------------------------------------------------------------------
 " neocomplcache
 
@@ -767,8 +769,8 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 " SingleCompile
 
 " Use c++11 by default
-autocmd Filetype cpp nmap <buffer> <F9> :SCCompileAF -std=c++11<CR>
-autocmd Filetype cpp nmap <buffer> <s-F9> :SCCompileRunAF -std=c++11<CR>
+autocmd Filetype cpp,cc nmap <buffer> <F9> :SCCompileAF -std=c++11<CR>
+autocmd Filetype cpp,cc nmap <buffer> <s-F9> :SCCompileRunAF -std=c++11<CR>
 
 " Specify Compilation Flags for Each Individual Source File
 " add next line to the beginning of the file
@@ -845,7 +847,7 @@ vnoremap <C-F> y:execute 'Rgrep '.substitute('<c-r>"', ' ', '\\ ', 'g')<CR>
 :let Grep_Default_Options = '-i'
 :let Grep_Skip_Files = '*.bak *~ *tags'
 :let Grep_Skip_Dirs = '.git'
-:let Grep_Default_Filelist = '*.c *.cpp *.hpp *.h *.cxx *.py'
+:let Grep_Default_Filelist = '*.c *.cpp *.cc *.hpp *.h *.cxx *.py'
 
 " ------------------------------------------------------------------------------
 " ErrorMarker
@@ -901,7 +903,7 @@ set shortmess+=atIA
 set keywordprg=
 
 " ignore some not useful matches on command-line completion
-set wildignore=*.~cpp,*.~hpp,*.~h,*.obj,*.swp,*.o,*.hi,*.exe,*.un~,*.class,*.d,
+set wildignore=*.~cpp,*.~cc,*.~hpp,*.~h,*.obj,*.swp,*.o,*.hi,*.exe,*.un~,*.class,*.d,
               \tags,a.out
 
 " persistant undo
@@ -1071,7 +1073,7 @@ nmap <C-\> :exe ":tj /" . expand("<cword>")<CR>
 
 " for TODO list
 map <silent><f8> :vimgrep /fixme\\|todo\\|FIXME\\|TODO\\|FIXIT\\|fixit/j
-            \*.c *.cpp *.h *.hpp<cr>:cw<cr>
+            \*.c *.cpp *.cc *.h *.hpp<cr>:cw<cr>
 
 " quick date and time pasting
 iabbrev td <c-r>=strftime("%H:%M %d.%m.%Y")<cr>
@@ -1204,6 +1206,9 @@ set shiftwidth=4
 
 " round indentation to multiple of 'shiftwidth'
 set shiftround
+
+" use 2 spaces for C++&C
+autocmd FileType cpp,c,cc set tabstop=2 softtabstop=2 shiftwidth=2
 
 " ==============================================================================
 " work with Cyrillic symbols
